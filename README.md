@@ -15,23 +15,6 @@
 
 - Users can provide the "QUIT" command to exit the program (case insensitive).
 
-# Directory/File Overview
-.
-|-- src
-    |-- algorithms.c -> Contains all disk scheduling algorithms.
-    |-- algorithms.h -> Contains function declarations and constants for algorithms.c.
-    |-- dataExtract.c -> Contains code for File IO and user input.
-    |-- dataExtract.h -> Contains the function declarations for dataExtract.c
-    |-- scheduler.c -> Contains the driver code for the scheduling simulator.
-|-- Makefile -> Build program and create "scheduler" executable
-|-- README.txt -> About program
-|-- input.txt -> Sample test data 1 provided in the assignment specification.
-|-- input2.txt -> Sample test data 2 
-|-- input3.txt -> Sample test data 3 with insufficient data.
-
-C libraries utilized:
-  <stdio.h>, <stdlib.h>, <stdbool.h>, <string.h>
-
 # How to run the Program
 
 Step 1: 
