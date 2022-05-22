@@ -89,7 +89,7 @@ int sstf(int *schedulingDataArr, int lenOfArr)
 
     copyDataArr(schedulingDataArr, lenOfArr, &schedulingDataArrCpy);
 
-    // * START OF COD LOGIC OBTAINED FROM THE SOURCE REFERENCED ABOVE *
+    // * START OF CODE LOGIC OBTAINED FROM THE SOURCE REFERENCED ABOVE *
     count = 0;
     numberOfRequests = lenOfArr - REQ_START_POS;
     totalSeekTime = 0;
