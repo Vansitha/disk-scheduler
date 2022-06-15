@@ -5,7 +5,7 @@
  * PURPOSE: Contains all the sechduling algorithms and other associated
  *          algorithms requred to run them
  * REFERENCE: THIS FILE CONTAINS CODE LOGIC OBTAINED FROM AN EXTERNAL SOURCE.
- *            REFERENCED AND INDICADED WHERE NECESSARY.
+ *            REFERENCED AND INDICATED WHERE NECESSARY.
  *            sstf function - Code logic to implement this function was obtained
  *            from a source from the internet.
  *            (REFERENCE)
