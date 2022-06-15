@@ -157,7 +157,7 @@ int scan(int *schedulingDataArr, int lenOfArr)
     copyDataArr(schedulingDataArr, lenOfArr, &schedulingDataArrCpy);
     sortArr(schedulingDataArrCpy, lenOfArr, &sortedDataArr);
 
-    // check the direction which the read/write head moves
+
     direction = schedulingDataArrCpy[CURR_HEAD_POS] - schedulingDataArrCpy[PRE_REQUEST];
 
     /*
@@ -175,20 +175,15 @@ int scan(int *schedulingDataArr, int lenOfArr)
 
     itterationStartIndex = getStartPos(schedulingDataArrCpy, lenOfArr, initialHeadPos);
 
-    // if go towards inner track then go to the left in array
     if (moveToInnerTracks)
     {
-        // call the left track service function
+
         totalSeekTime = serviceToInnerTracks(sortedDataArr, itterationStartIndex);
-
-        // add the final request before reaching 0th track
         totalSeekTime += sortedDataArr[REQ_END];
-        currHead = 0; // reached 0th track now will continue in the reverse direction from there
-
+        currHead = 0;
         // reached 0  now it will start servicing in reverse
         totalSeekTime += serviceToOuterTracks(sortedDataArr, itterationStartIndex, lenOfArr, currHead);
     }
-    // this will start from servicing outter tracks first because the head moves in that direction
     else if (!moveToInnerTracks)
     {
         currHead = initialHeadPos;
@@ -237,7 +232,6 @@ int cScan(int *schedulingDataArr, int lenOfArr)
     int currHead;
     bool moveToInnerTracks;
 
-    // intital set up is the same as the scan algorithm
     copyDataArr(schedulingDataArr, lenOfArr, &schedulingDataArrCpy);
     sortArr(schedulingDataArrCpy, lenOfArr, &sortedDataArr);
 
@@ -319,14 +313,9 @@ int look(int *schedulingDataArr, int lenOfArr)
 
     copyDataArr(schedulingDataArr, lenOfArr, &schedulingDataArrCpy);
     sortArr(schedulingDataArrCpy, lenOfArr, &sortedDataArr);
-
-    // check the direction which the read/write head moves
     direction = schedulingDataArrCpy[CURR_HEAD_POS] - schedulingDataArrCpy[PRE_REQUEST];
-    /*
-    if set to true goes towards track 0 which is considered the inner track if set
-    to false goes towards the outter most track
-    */
     moveToInnerTracks = false;
+    
     if (direction < 0)
     {
         moveToInnerTracks = true;
@@ -336,8 +325,7 @@ int look(int *schedulingDataArr, int lenOfArr)
     initialHeadPos = schedulingDataArrCpy[CURR_HEAD_POS];
 
     itterationStartIndex = getStartPos(schedulingDataArrCpy, lenOfArr, initialHeadPos);
-
-    // if go towards inner track then go to the left in array
+    
     if (moveToInnerTracks)
     {
         // service inner tracks first
@@ -346,10 +334,9 @@ int look(int *schedulingDataArr, int lenOfArr)
         // now the current head is at the last request at the inner most track does not reach 0
         currHead = sortedDataArr[REQ_END];
 
-        // now it will gotowards outter tracks
+        // now it will go towards outter tracks
         totalSeekTime += serviceToOuterTracks(sortedDataArr, itterationStartIndex, lenOfArr, currHead);
     }
-    // this will start from servicing outter tracks first because the head moves in that direction
     else if (!moveToInnerTracks)
     {
         currHead = initialHeadPos;
@@ -398,24 +385,17 @@ int cLook(int *schedulingDataArr, int lenOfArr)
     totalSeekTime = 0;
     copyDataArr(schedulingDataArr, lenOfArr, &schedulingDataArrCpy);
     sortArr(schedulingDataArrCpy, lenOfArr, &sortedDataArr);
-
-    // check the direction which the read/write head moves
     direction = schedulingDataArrCpy[CURR_HEAD_POS] - schedulingDataArrCpy[PRE_REQUEST];
-    /*
-    if set to true goes towards track 0 which is considered the inner track if set
-    to false goes towards the outter most track
-    */
     moveToInnerTracks = false;
+    
     if (direction < 0)
     {
         moveToInnerTracks = true;
     }
 
     initialHeadPos = schedulingDataArrCpy[CURR_HEAD_POS];
-
     itterationStartIndex = getStartPos(schedulingDataArrCpy, lenOfArr, initialHeadPos);
-
-    // if go towards inner track then go to the left in array
+    
     if (moveToInnerTracks)
     {
         // call the left track service function
@@ -423,7 +403,7 @@ int cLook(int *schedulingDataArr, int lenOfArr)
 
         currHead = sortedDataArr[lenOfArr - 1];
         /*
-        stop at the final request in the outer track now it will travel to the request at the outter most
+        stop at the final request in the outer track now it will travel to the request at the outer most
         track and start servicing from there onwards
         */
         // this is the movement to the other end of the disk and will start servicing from there
@@ -432,7 +412,6 @@ int cLook(int *schedulingDataArr, int lenOfArr)
 
         totalSeekTime += serviceFromOuterTrack(sortedDataArr, itterationStartIndex, lenOfArr, currHead);
     }
-    // this will start from servicing outter tracks first because the head moves in that direction
     if (!moveToInnerTracks)
     {
         // service outter tracks first and then service inner tracks
@@ -579,8 +558,7 @@ int serviceToOuterTracks(int *requestArr, int itterationStartIndex, int lenOfArr
 
     currHead = startHead;
     seekTime = 0;
-
-    // Need to start from the curr head position + 1
+    
     for (i = itterationStartIndex + 1; i < lenOfArr; i++)
     {
         nextRequest = requestArr[i];
