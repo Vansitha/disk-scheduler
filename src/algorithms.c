@@ -47,7 +47,6 @@ int fcfs(int *schedulingDataArr, int lenOfArr)
     int i;
     int diff;
 
-    /* intitally set using the data in the array */
     currHead = schedulingDataArr[CURR_HEAD_POS];
     totalSeekTime = 0;
 
