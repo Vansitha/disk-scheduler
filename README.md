@@ -8,7 +8,7 @@
   the total seek time for each scheduling algorithm
 
 - Input file format: 
-  <total cylinders" <current read/write head position> <previous disk request> <request data>
+  "total cylinders" "current read/write head position" "previous disk request" [request data]
   (Note that each value needs to be seprated by a single space)
 
 - Once computation is complete the program waits for another input file.
