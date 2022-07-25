@@ -1,4 +1,4 @@
-## Disk Scheduling Simulator V1.0
+## Disk Scheduling Simulator
 
 # Program Overview
 
@@ -31,3 +31,4 @@ Run `make clean` to delete the bin folder containing the object files and "sched
 executable from the directory.
 
 Developed using C11 Standard
+v1.0
