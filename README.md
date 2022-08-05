@@ -30,5 +30,4 @@ Step 3 (Optional)
 Run `make clean` to delete the bin folder containing the object files and "scheduler" 
 executable from the directory.
 
-Developed using C11 Standard
 v1.0
