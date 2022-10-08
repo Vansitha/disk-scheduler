@@ -4,7 +4,7 @@
  * UNIT: Operating Systems - COMP2006
  * PURPOSE: Contains the function declarations for dataExtract.c
  * REFERENCE: None
- * LAST MOD: 11/05/22
+ * LAST MOD: 12/05/22
  * COMMENTS: None
  */
 
