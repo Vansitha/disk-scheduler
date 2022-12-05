@@ -35,6 +35,8 @@ int main()
     pthread_cond_init(&sharedData->runCondition, NULL);
 
     // initialize all threads
+    // NOTE: Needs refactoring
+    // Possible fix: Store an array of function pointers and iterate over it to to create each thread and run the function.
     if (pthread_create(&A, NULL, &fcfs, sharedData) != 0)
     {
         perror("Failed to create thread 'A':\n");
